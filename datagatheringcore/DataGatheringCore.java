@@ -4,23 +4,16 @@ public class DataGatheringCore implements IDataGathering {
   private WebScraper webScraper;
   private NewsScraper newsScraper;
 
-
-
   public ScrapeResult getData() {
-	return null;
+	return webScraper.scrape();
   }
 
   public Article[] getNews(String company) {
-	return null;
+	return newsScraper.scrapeNews(company);
   }
 
   public Article[] getNews(String[] companies) {
-	return null;
+	return newsScraper.scrapeNews(companies);
   }
-
-
-
-
-
 
 }

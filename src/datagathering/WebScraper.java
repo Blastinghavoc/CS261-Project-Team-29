@@ -1,12 +1,11 @@
 package footsiebot.datagatheringcore;
 
 import org.jsoup.Jsoup;
-import org.jsoup.helper.Validate;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
-import java.lang.Double;
+import java.lang.Float;
 
 public class WebScraper {
 
@@ -25,25 +24,24 @@ public class WebScraper {
         String[] codes = new String[100];
         String[] names = new String[100];
         String[] groups = new String[100];
-        double[] prices = new double[100];
-        double[] absChange = new double[100];
-        double[] percChange = new double[100];
+        Float[] prices = new Float[100];
+        Float[] absChange = new Float[100];
+        Float[] percChange = new Float[100];
         int i = 0;
-        int j = 0;         
+        int j = 0;
 
         for (Element entry : entries) {
             String[] content = entry.ownText().split(",");
             codes[i] = content[j++];
             names[i] = content[j++];
-            // group scraping here
-
-            if (content[j].contains(".")) prices[i] = Double.parseDouble(content[j++]);
+            groups[i] = "grouptest";
+            if (content[j].contains(".")) prices[i] = Float.parseFloat(content[j++]);
             else {
-                prices[i] = Double.parseDouble(content[j] + content[j+1]);
+                prices[i] = Float.parseFloat(content[j] + content[j+1]);
                 j+=2;
             }
-            absChange[i] = Double.parseDouble(content[j++]);
-            percChange[i] = Double.parseDouble(content[j++]);
+            absChange[i] = Float.parseFloat(content[j++]);
+            percChange[i] = Float.parseFloat(content[j++]);
             j = 0;
             i++;
         }

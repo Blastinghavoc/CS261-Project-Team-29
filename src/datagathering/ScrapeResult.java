@@ -4,11 +4,11 @@ public class ScrapeResult {
     private String[] codes;
     private String[] names;
     private String[] groups;
-    private double[] prices;
-    private double[] absChange;
-    private double[] percChange;
+    private Float[] prices;
+    private Float[] absChange;
+    private Float[] percChange;
 
-    public ScrapeResult(String[] codes, String[] names, String[] groups, double[] prices, double[] absChange, double[] percChange) {
+    public ScrapeResult(String[] codes, String[] names, String[] groups, Float[] prices, Float[] absChange, Float[] percChange) {
         this.codes = codes;
         this.names = names;
         this.groups = groups;
@@ -29,15 +29,15 @@ public class ScrapeResult {
         return groups[index];
     }
 
-    public double getPrice(int index) {
+    public Float getPrice(int index) {
         return prices[index];
     }
 
-    public double getAbsChange(int index) {
+    public Float getAbsChange(int index) {
         return absChange[index];
     }
 
-    public double getPercChange(int index) {
+    public Float getPercChange(int index) {
         return percChange[index];
     }
 
